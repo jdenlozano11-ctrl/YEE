@@ -19,8 +19,8 @@ def send_to_gemini():
 
         # Define your prompt for Gemini
         prompt = (
-            "You are a helpful chef AI. Look at the image of ingredients "
-            "and create a recipe with a title, ingredients list, and cooking instructions."
+            "You are a helpful chef AI. Look at the image of ingredients and write a short recipe (under 80 words) "
+            "and create a recipe with a title, ingredients, and brief instructions."
         )
 
         # Get your Gemini API key (from environment or replace temporarily)
