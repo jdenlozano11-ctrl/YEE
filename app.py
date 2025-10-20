@@ -3,12 +3,12 @@ import requests, os
 
 app = Flask(__name__)
 
-@app.route('/send_to_gpt', methods=['POST'])
-def send_to_gpt():
+@app.route('/send_to_gemini', methods=['POST'])
+def send_to_gemini():
     base64_image = request.data.decode('utf-8')
 
     headers = {
-        "Authorization": f"Bearer {os.environ.get('OPENAI_API_KEY')}",
+        "Authorization": f"Bearer {os.environ.get('GEMINI_API_KEY')}",
         "Content-Type": "application/json"
     }
 
@@ -25,9 +25,9 @@ def send_to_gpt():
         ]
     }
 
-    response = requests.post(
-        "https://api.openai.com/v1/chat/completions",
-        headers=headers,
+   response = requests.post(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+    headers={"Authorization": f"Bearer {GEMINI_API_KEY}"},
         json=payload
     )
 
