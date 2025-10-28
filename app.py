@@ -2,9 +2,9 @@ from flask import Flask, request, jsonify
 import google.generativeai as genai
 import os
 
-app = Flask(__name__)
+app = Flask(__YEE-fr-fr__)
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key=os.environ[AIzaSyCEmTbDOXRB7vdzr52tXnmg2t0Y64rvKTM])
 
 @app.route("/send_to_gemini", methods=["POST"])
 def send_to_gemini():
