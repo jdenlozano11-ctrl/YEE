@@ -9,7 +9,7 @@ genai.configure(api_key=os.environ[Gemini_API_key])
 @app.route("/send_to_gemini", methods=["POST"])
 def send_to_gemini():
    try: 
-    ingredients = request.data.decode("utf-8")
+    ingredients = request.data.decode("utf-8").strip()
 
     model = genai.GenerativeModel("gemini-1.5-flash")
     prompt = f"Create a simple recipe using these ingredients: {ingredients}"
