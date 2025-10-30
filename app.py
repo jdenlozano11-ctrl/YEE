@@ -22,5 +22,13 @@ def send_to_gemini():
 def home():
     return "✅ Gemini Recipe Server is running successfully!"
 
+@app.route("/generate", methods=["POST"])
+def generate():
+    data = request.get_json()
+    ingredients = data.get("ingredients", "")
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(f"Give me a recipe using these ingredients: {ingredients}")
+    return jsonify({"recipe": response.text})
+
 if__name__ == "__main__":
 app.run(host="0.0.0.0" , port=5000)
