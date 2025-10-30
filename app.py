@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-genai.configure(api_key=os.environ[Gemini_API_key])
+genai.configure(api_key=os.environ[GEMINI_API_KEY])
 
 @app.route("/send_to_gemini", methods=["POST"])
 def send_to_gemini():
