@@ -16,7 +16,8 @@ def send_to_gemini():
 
     response = model.generate_content(prompt)
     return jsonify({"recipe": response.text})
-
+   except Exception as e:
+      return jsonify({"error": str(e)}), 500
 @app.route('/')
 def home():
     return "✅ Gemini Recipe Server is running successfully!"
